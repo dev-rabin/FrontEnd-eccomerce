@@ -62,3 +62,14 @@ class LinkButton extends StatelessWidget {
     );
   }
 }
+
+class SizeBox extends StatelessWidget {
+  const SizeBox({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 10,
+    );
+  }
+}
