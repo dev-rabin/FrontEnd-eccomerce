@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:ecommerce_app/presentation/screens/auth/signup_screen.dart';
 import 'package:ecommerce_app/presentation/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +14,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  late final TextEditingController emailController;
-  late final TextEditingController passwordController;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
         centerTitle: true,
         title: Text("Eccomerce App"),
       ),
-      body: ListView(padding: EdgeInsets.all(10), children: [
+      body: ListView(padding: EdgeInsets.all(12), children: [
         Text(
           "Login",
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
@@ -41,6 +42,13 @@ class _LoginScreenState extends State<LoginScreen> {
           obsecureText: true,
         ),
         SizeBox(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            LinkButton(text: "Forgot Password?"),
+          ],
+        ),
+        SizeBox(),
         PrimaryButton(text: "Login"),
         SizeBox(),
         Row(
@@ -49,7 +57,9 @@ class _LoginScreenState extends State<LoginScreen> {
             Text("Don't have an account?"),
             LinkButton(
               text: "Signup",
-              onpressed: () {},
+              onpressed: () {
+                Navigator.pushNamed(context, SignUpScreen.routeName);
+              },
             )
           ],
         )
