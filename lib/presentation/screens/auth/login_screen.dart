@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:ecommerce_app/presentation/screens/auth/providers/login_provider.dart';
 import 'package:ecommerce_app/presentation/screens/auth/signup_screen.dart';
 import 'package:ecommerce_app/presentation/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -14,10 +16,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<LoginProvider>(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -29,14 +30,21 @@ class _LoginScreenState extends State<LoginScreen> {
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
         SizeBox(),
+        (provider.error != "")
+            ? Text(
+                provider.error,
+                style: TextStyle(color: Colors.red),
+              )
+            : SizedBox(),
+        SizeBox(),
         PrimaryTextField(
-          controller: emailController,
+          controller: provider.emailController,
           hintText: "Email",
           labelText: "Email",
         ),
         SizeBox(),
         PrimaryTextField(
-          controller: passwordController,
+          controller: provider.passwordController,
           hintText: "Password",
           labelText: "Password",
           obsecureText: true,
@@ -49,7 +57,12 @@ class _LoginScreenState extends State<LoginScreen> {
           ],
         ),
         SizeBox(),
-        PrimaryButton(text: "Login"),
+        PrimaryButton(
+          text: (provider.isLoading) ? "..." : "Login",
+          onpressed: () {
+            provider.login();
+          },
+        ),
         SizeBox(),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
