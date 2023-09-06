@@ -45,9 +45,9 @@ class _LoginScreenState extends State<LoginScreen> {
         SizeBox(),
         PrimaryTextField(
           controller: provider.passwordController,
+          obsecureText: true,
           hintText: "Password",
           labelText: "Password",
-          obsecureText: true,
         ),
         SizeBox(),
         Row(

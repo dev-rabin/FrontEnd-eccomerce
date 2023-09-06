@@ -19,6 +19,7 @@ class PrimaryTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
+      obscureText: false,
       decoration: InputDecoration(
         hintText: labelText,
         labelText: labelText,
@@ -57,10 +58,8 @@ class LinkButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      
       onPressed: onpressed,
       child: Text(text),
-      
     );
   }
 }

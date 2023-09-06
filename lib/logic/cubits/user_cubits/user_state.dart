@@ -1,8 +1,10 @@
-import 'package:ecommerce_app/data/models/user/user_model.dart';
+import 'package:ecommerce_app/data/models/user_model.dart';
 
 abstract class UserState {}
 
 class UserInitialState extends UserState {}
+
+class UserLoadingState extends UserState{}
 
 class UserLoggedInState extends UserState {
   final UserModel userModel;

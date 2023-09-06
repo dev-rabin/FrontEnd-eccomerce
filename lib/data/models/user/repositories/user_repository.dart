@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:ecommerce_app/core/api.dart';
-import 'package:ecommerce_app/data/models/user/user_model.dart';
+import 'package:ecommerce_app/data/models/user_model.dart';
 
 final _api = API();
 
@@ -15,7 +15,7 @@ class UserRepository {
       // Api response
       ApiResponse apiResponse = ApiResponse.fromResponse(response);
       // checking success of api response
-      if (apiResponse.success) {
+      if (!apiResponse.success) {
         throw apiResponse.message.toString();
       }
       //Convert rat data to model
@@ -33,7 +33,7 @@ class UserRepository {
 
       ApiResponse apiResponse = ApiResponse.fromResponse(response);
 
-      if (apiResponse.success) {
+      if (!apiResponse.success) {
         throw apiResponse.message.toString();
       }
       return UserModel.fromJson(apiResponse.data);

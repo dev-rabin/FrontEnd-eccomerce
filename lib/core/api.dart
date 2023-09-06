@@ -3,7 +3,7 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-const String BASE_URL = "http//192.168.1.5/api";
+const String BASE_URL = "http://192.168.1.5:3000/api";
 const Map<String, dynamic> DEFAULT_HEADERS = {
   "Content-Type": "application/json"
 };
@@ -19,7 +19,8 @@ class API {
         requestBody: true,
         requestHeader: true,
         responseBody: true,
-        responseHeader: true));
+        responseHeader: true,
+        error: true));
   }
 
   Dio get sendRequest => _dio;
