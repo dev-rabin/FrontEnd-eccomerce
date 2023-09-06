@@ -40,6 +40,7 @@ class LoginProvider extends ChangeNotifier {
   }
 
   void login() async {
+    if (!formKey.currentState!.validate()) return null;
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
     BlocProvider.of<UserCubit>(context)
