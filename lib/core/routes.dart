@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_constructors
+
+
 import 'package:ecommerce_app/presentation/screens/auth/providers/login_provider.dart';
 import 'package:ecommerce_app/presentation/screens/auth/providers/sign_up_provider.dart';
 import 'package:ecommerce_app/presentation/screens/auth/signup_screen.dart';
+import 'package:ecommerce_app/presentation/screens/home/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
@@ -23,6 +26,9 @@ class Routes {
               create: (context) => SignUpProvider(context),
               child: SignUpScreen()),
         );
+
+      case HomeScreen.routeName:
+        return CupertinoPageRoute(builder: (context) => HomeScreen());
 
       default:
         return null;
