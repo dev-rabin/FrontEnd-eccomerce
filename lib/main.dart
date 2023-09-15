@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 import 'dart:developer';
-
 import 'package:ecommerce_app/core/ui.dart';
 import 'package:ecommerce_app/logic/cubits/user_cubits/user_cubit.dart';
 import 'package:ecommerce_app/presentation/screens/auth/login_screen.dart';
@@ -45,7 +44,7 @@ class EccomerceBloc extends BlocObserver {
 
   @override
   void onChange(BlocBase bloc, Change change) {
-    log("Chaneg in $bloc : $change");
+    log("Change in $bloc : $change");
     super.onChange(bloc, change);
   }
 
